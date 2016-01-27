@@ -8,7 +8,7 @@ function Ticket(movie, age, time) {
 Ticket.prototype.finalPrice = function() {
   var regPrice = 10
 
-  if (this.time === "matinee") {
+  if (this.time === "2:00") {
     if (this.age === "youth") {
       return regPrice - 6;
     }
@@ -19,7 +19,7 @@ Ticket.prototype.finalPrice = function() {
       return regPrice - 1;
     }
   }
-  else if (this.time === "evening") {
+  else if (this.time === "8:00") {
     if (this.age === "youth") {
       return regPrice - 4;
     }
@@ -40,19 +40,21 @@ Ticket.prototype.finalPrice = function() {
       return regPrice;
     }
   }
+}
 
 
 $(document).ready(function() {
 
-$("form#ticket-purchase").submit(function(event){
-  event.preventDefault();
+  $("form#ticket-purchase").submit( function(event){
+    event.preventDefault();
+    debugger;
+    var movies = $('#movie').val();
+    var age = $('#age').val();
+    var time = $('#time').val();
 
-  var movies = $('#movie').val();
-  var age = $('#age').val();
-  var time = $('#time').val();
-
-  var tickets = new Ticket(movies, age, time);
-
-
+    var tickets = new Ticket(movies, age, time);
+    var finalPrice = tickets.finalPrice();
+    console.log("created tickets");
   });
+
 });
