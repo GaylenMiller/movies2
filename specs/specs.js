@@ -5,11 +5,15 @@ describe('Movies', function() {
     expect(testTicket.age).to.equal("Adult");
     expect(testTicket.time).to.equal("7:00pm");
   });
-  it('captures input data for age', function(){
-    var testAge = new Age("youth", "student", "adult", "senior");
-    expect(testAge.youth).to.equal("youth");
-    expect(testAge.student).to.equal("student");
-    expect(testAge.adult).to.equal("adult");
-    expect(testAge.senior).to.equal("senior");
+  it("adds the finalPrice method to all tickets", function() {
+    var testFinalPrice = new Ticket ("Adult", "8:00pm")
+    expect(testFinalPrice.finalPrice()).to.equal("$101.00")
   });
+  // it('captures input data for age', function(){
+  //   var testAge = new Age("youth", "student", "adult", "senior");
+  //   expect(testAge.youth).to.equal("youth");
+  //   expect(testAge.student).to.equal("student");
+  //   expect(testAge.adult).to.equal("adult");
+  //   expect(testAge.senior).to.equal("senior");
+  // });
 });
